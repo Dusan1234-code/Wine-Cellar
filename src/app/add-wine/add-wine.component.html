@@ -1,0 +1,49 @@
+<form [formGroup]="formGroup">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+      type="text" 
+      formControlName="name"
+      class="form-control" 
+      id="name" 
+      placeholder="Enter name" 
+      name="name"
+      [(ngModel)]="wine.name"
+      >
+      <span class="text-danger" 
+      *ngIf="formGroup.controls['name'].errors?.['required'] && formGroup.controls['name'].touched">Name must be inserted</span>
+      <span class="text-danger"
+      *ngIf="formGroup.controls['name'].errors?.['minlength']">Minimum name size must be at least 3 characters</span>
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input formControlName="year"  [(ngModel)]="wine.year"
+      type="number" class="form-control" id="year" placeholder="Enter year" >
+      <span class="text-danger"
+      *ngIf="formGroup.controls['year'].touched &&formGroup.controls['year'].errors?.['required']">Wine year must be inserted because it is very important</span>
+    </div>
+    <div class="form-group">
+        <label for="grapes">Grapes</label>
+        <input formControlName="grapes"  [(ngModel)]="wine.grapes"
+        type="text" class="form-control" id="grapes" placeholder="Enter grapes">
+        <span class="text-danger"
+        *ngIf="formGroup.controls['grapes'].touched && formGroup.controls['grapes'].errors?.['required']">Type of grapes must be inserted</span>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input formControlName="country" 
+        type="text" class="form-control" id="country" placeholder="Enter country">
+      </div>
+      <div class="form-group">
+        <label for="region">Region</label>
+        <input formControlName="region"
+        type="text" class="form-control" id="region" placeholder="Enter region" >
+      </div>
+      <button  type="submit" 
+      [disabled]="formGroup.invalid || !enabled" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      <button  
+      type="submit" 
+      [disabled]="formGroup.invalid || enabled" 
+      class="btn btn-success">Update</button>
+  </form>
+
