@@ -10,6 +10,9 @@
 </div>
 <div class="row">
     <div class="col">
-        <app-pagination></app-pagination>
+        <app-pagination 
+        [pagination]="numberOfPages"
+        (emmiter)="onPrevPage($event)" 
+        (emmiterNext)="onNextPage($event)"></app-pagination>
     </div>
 </div>

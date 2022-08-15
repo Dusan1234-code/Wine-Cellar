@@ -13,6 +13,15 @@ import { WineService } from '../services/wine.service';
 export class WineComponent implements OnInit {
   wines: Wine[]= [];
 
+  params = {
+    page: 1,
+    pageSize: 8,
+  }
+
+  disabl: boolean = false;
+  count: number = NaN;
+  numberOfPages = 0;
+
   constructor(private service: WineService) { 
   }
 
@@ -21,9 +30,22 @@ export class WineComponent implements OnInit {
   }
 
   getAllWines() {
-    this.service.getAllWines().subscribe((response: WineSearchResults)=>{
+    this.service.getAllWines(this.params).subscribe((response: WineSearchResults)=>{
       this.wines = response.results;
+      this.count = response.count;
+      this.numberOfPages = Math.ceil(this.count / this.params.pageSize);
     })
+  }
+
+
+  onPrevPage(value: number) {
+    this.params.page -= value;
+    this.getAllWines();
+  }
+
+  onNextPage(value: number) {
+    this.params.page += value;
+    this.getAllWines();
   }
 
   

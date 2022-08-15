@@ -13,6 +13,7 @@ import { PaginationComponent } from './wine/pagination/pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddWineComponent } from './add-wine/add-wine.component';
 import { SingleWineComponent } from './single-wine/single-wine.component';
+import { EditWineComponent } from './edit-wine/edit-wine.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SingleWineComponent } from './single-wine/single-wine.component';
     TableComponent,
     PaginationComponent,
     AddWineComponent,
-    SingleWineComponent, 
+    SingleWineComponent,
+    EditWineComponent, 
    ],
   imports: [
     BrowserModule,

@@ -13,10 +13,8 @@ export class AddWineComponent implements OnInit {
 
   formGroup: FormGroup;
   wine: Wine = new Wine();
-  wineId: number = NaN;
-  enabled: boolean = false;
 
-  constructor(private builder: FormBuilder, private service: WineService, private router: Router, private route: ActivatedRoute) {
+  constructor(private builder: FormBuilder, private service: WineService, private router: Router) {
     this.formGroup = this.builder.group({
       name:['',[Validators.required,Validators.minLength(3)]],
       year:['', Validators.required],
@@ -27,17 +25,6 @@ export class AddWineComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params:any)=>{
-      this.wineId = params['id'];
-      this.service.getOneWine(this.wineId).subscribe((response)=>{
-        this.wine = response;
-        if(params['id'] >= 1) {
-          this.enabled = false;
-        } else {
-          this.enabled = true;
-        }
-      })
-    })
   }
 
   onSubmit() {
@@ -47,5 +34,6 @@ export class AddWineComponent implements OnInit {
     });
     this.formGroup.reset();
   }
+
 
 }

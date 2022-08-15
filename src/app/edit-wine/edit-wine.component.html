@@ -1,0 +1,38 @@
+<form (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+      type="text" 
+      class="form-control" 
+      id="name" 
+      placeholder="Enter name" 
+      name="name"
+      [value]="wine.name"
+      [(ngModel)] = 'name'
+      >
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input 
+      type="number" class="form-control" id="year" placeholder="Enter year" >
+      <span class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="grapes">Grapes</label>
+        <input  
+        type="text" class="form-control" id="grapes" placeholder="Enter grapes">
+        <span class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input  
+        type="text" class="form-control" id="country" placeholder="Enter country">
+      </div>
+      <div class="form-group">
+        <label for="region">Region</label>
+        <input 
+        type="text" class="form-control" id="region" placeholder="Enter region" >
+      </div>
+      <button  class="btn btn-success">Update</button>
+  </form>
+

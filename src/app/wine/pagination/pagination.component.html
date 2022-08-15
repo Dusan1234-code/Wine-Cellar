@@ -1,1 +1,11 @@
-<p>pagination works!</p>
+<div class="row">
+    <div class="col-6">
+        <button class="prev" (click)="prevPage()">Prev</button>
+        <button class="next" (click)="nextPage()">Next</button>
+    </div>
+    <div class="col-6">
+        <p *ngFor="let field of fields; let i = index">
+            {{i}}
+        </p>
+    </div>
+</div>

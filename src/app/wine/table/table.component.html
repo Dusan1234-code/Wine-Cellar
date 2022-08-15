@@ -3,6 +3,7 @@
         <table class="table table-striped">
             <thead>
               <tr>
+                <th></th>
                 <th>Name <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
                 <th>Year <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
                 <th>Grapes <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
@@ -12,6 +13,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let wine of allWine"  >
+                <td>{{wine._id}}</td>
                 <td style="cursor: pointer;"
                 [routerLink]="['/wines', wine._id]">{{wine.name}}</td>
                 <td>{{wine.year}}</td>
@@ -21,7 +23,7 @@
                 <td (click)="deleteWine(wine._id)" class="delete">
                   <span class="delete-sing"></span>
                 </td>
-                <td [routerLink]="['/wines/add',wine._id]">UPDATE</td>
+                <td [routerLink]="['/wines/edit/',wine._id]">EDIT</td>
               </tr>
             </tbody>
           </table>
